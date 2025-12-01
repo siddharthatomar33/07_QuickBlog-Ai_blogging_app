@@ -13,7 +13,7 @@ const AddBlog = () => {
   const editorRef=useRef(null)
   const quillRef=useRef(null)
 
-const [image,setImage]=useState();
+const [image,setImage]=useState(null);
 const [title,setTitle]=useState('');
 const [subtitle,setSubTitle]=useState('');
 const [category,setCategory]=useState('Startup');
