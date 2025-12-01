@@ -2,6 +2,8 @@ import React, { useEffect, useRef, useState } from 'react'
 import { assets, blogCategories } from '../../assets/assets'
 import Quill from 'quill';
 import { useAppContext } from '../../context/AppContext';
+import toast from 'react-hot-toast';
+
 
 const AddBlog = () => {
 
@@ -11,7 +13,7 @@ const AddBlog = () => {
   const editorRef=useRef(null)
   const quillRef=useRef(null)
 
-const [image,setImage]=useState(false);
+const [image,setImage]=useState();
 const [title,setTitle]=useState('');
 const [subtitle,setSubTitle]=useState('');
 const [category,setCategory]=useState('Startup');
@@ -40,7 +42,7 @@ const onSubmitHandler=async(e)=>{
       toast.success(data.message);
       setImage(false)
       setTitle('')
-      quillRef.current.roor.innerHTML=''
+      quillRef.current.root.innerHTML=''
       setCategory('Startup')
      }
       else{
@@ -91,7 +93,7 @@ useEffect(()=>{
        className='mt-2 px-3 py-2 border text-gray-500 border-gray-300 outline-none rounded'>
         <option value="">Select category</option>
         {blogCategories.map((item,index)=>{
-        <option key={index} value={item}>{item}</option>
+        return <option key={index} value={item}>{item}</option>
         })}
        </select>
 
@@ -102,7 +104,7 @@ useEffect(()=>{
 
        <button disabled={isAdding} type="submit" className='mt-8 w-40 h-10 bg-primary text-white rounded cursor-pointer text-sm'>
         {isAdding ?'Adding...':'Add Blog'}
-        Add Blog</button>
+        </button>
 
       </div>
       
