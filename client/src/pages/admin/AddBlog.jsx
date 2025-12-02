@@ -102,7 +102,7 @@ useEffect(()=>{
 
        <button disabled={isAdding} type="submit" className='mt-8 w-40 h-10 bg-primary text-white rounded cursor-pointer text-sm'>
         {isAdding ?'Adding...':'Add Blog'}
-        Add Blog</button>
+        </button>
 
       </div>
       
