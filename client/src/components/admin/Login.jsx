@@ -4,14 +4,14 @@ import toast from 'react-hot-toast';
 
 const Login = () => {
 
-const{axios, setToken}=useAppContext();
+const {axios, setToken}=useAppContext();
 const[email,setEmail]=useState('')
 const[password,setPassword]=useState('')
 
 const handleSubmit=async(e)=>{
   e.preventDefault()
   try {
-    const {data}=await axios.post('/api/admin/login',{email,password});
+    const {data}=await axios.post('http://localhost:3000/api/admin/login',{email,password});
 
 
     if(data.success){

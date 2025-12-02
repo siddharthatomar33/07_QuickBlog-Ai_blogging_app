@@ -7,7 +7,7 @@ const Header = () => {
   const {setInput,input}=useAppContext()
   const inputRef=useRef()
 
-  const onSubmitHandler = async (e)=>{
+  const onSubmitHandler= async (e)=>{
     e.preventDefault();
     setInput(inputRef.current.value)
   }
@@ -41,7 +41,7 @@ const Header = () => {
 
         <div className='text-center'>
           {input && <button onClick={onClear} className='border font-light text-xs py-1 px-3 rounded-sm shadow-custom-sm cursor-pointed'>
-          Clear Search
+          Clear search
           </button>}
         </div>
     <img src={assets.gradientBackground} alt="" className='absolute -top-50 -z-1 opacity-45 '/>

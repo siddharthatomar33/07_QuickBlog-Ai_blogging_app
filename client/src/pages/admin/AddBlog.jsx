@@ -2,8 +2,6 @@ import React, { useEffect, useRef, useState } from 'react'
 import { assets, blogCategories } from '../../assets/assets'
 import Quill from 'quill';
 import { useAppContext } from '../../context/AppContext';
-import toast from 'react-hot-toast';
-
 
 const AddBlog = () => {
 
@@ -13,7 +11,7 @@ const AddBlog = () => {
   const editorRef=useRef(null)
   const quillRef=useRef(null)
 
-const [image,setImage]=useState(null);
+const [image,setImage]=useState(false);
 const [title,setTitle]=useState('');
 const [subtitle,setSubTitle]=useState('');
 const [category,setCategory]=useState('Startup');
@@ -42,7 +40,7 @@ const onSubmitHandler=async(e)=>{
       toast.success(data.message);
       setImage(false)
       setTitle('')
-      quillRef.current.root.innerHTML=''
+      quillRef.current.roor.innerHTML=''
       setCategory('Startup')
      }
       else{
@@ -104,7 +102,7 @@ useEffect(()=>{
 
        <button disabled={isAdding} type="submit" className='mt-8 w-40 h-10 bg-primary text-white rounded cursor-pointer text-sm'>
         {isAdding ?'Adding...':'Add Blog'}
-        </button>
+        Add Blog</button>
 
       </div>
       
